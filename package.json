@@ -1,6 +1,6 @@
 {
-  "name": "simpleicons-search",
-  "version": "1.0.1",
+  "name": "magic-elements",
+  "version": "1.0.0",
   "private": true,
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,6 @@
     "vite": "^4.4.9"
   },
   "dependencies": {
-    "simple-icons": "^9.12.0",
     "vue": "^3.3.4"
   }
 }

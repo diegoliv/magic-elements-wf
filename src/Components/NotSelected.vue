@@ -1,6 +1,9 @@
 <template>
-  <div class="search-description">
-    <h2>Select an Element</h2>
-    <p>Before inserting an icon on the canvas, select an element that can contain it.</p>
+  <div class="notice-full">
+    <img src="../not-selected.svg" />
+    <div class="header">
+      <h2 class="title">Select an Element</h2>
+    </div>
+    <p>Before inserting an element on the canvas, select another element that can contain it.</p>
   </div>
 </template>
