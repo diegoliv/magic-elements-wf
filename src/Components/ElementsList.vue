@@ -6,6 +6,7 @@
         :key="key"
         :el="el"
         @insert="$emit('insert', el)"
+        @details="$emit('details', el)"
       />
     </ul>
     <NotFound v-if="filteredList.length <= 0" />

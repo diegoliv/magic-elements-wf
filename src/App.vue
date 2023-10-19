@@ -4,9 +4,17 @@
       <Search v-model="searchInput" />
       <ElementsList 
         :search="searchInput"
-        @insert="insertEl"       
+        @insert="insertEl"
+        @details="displayDetails"
       />
     </div>
+    <DetailsPanel
+      v-if="displayDetailsEl && showDetails"
+      :el="displayDetailsEl"
+      :active="showDetails"
+      @close="showDetails = false"
+      @insert="insertFromDetails"
+    />
     <NotSelected v-if="!isElSelected" />
   </div>
 </template>
@@ -14,6 +22,7 @@
 <script>
 import Search from "./Components/Search.vue";
 import ElementsList from "./Components/ElementsList.vue";
+import DetailsPanel from "./Components/DetailsPanel.vue";
 import NotSelected from "./Components/NotSelected.vue";
 
 import { createElement } from "./utils/utils";
@@ -22,6 +31,7 @@ export default {
   components: {
     Search,
     ElementsList,
+    DetailsPanel,
     NotSelected
   },
   data() {
@@ -29,6 +39,8 @@ export default {
       searchInput: "",
       isElSelected: false,
       selectedEl: null,
+      showDetails: false,
+      displayDetailsEl: null,
       // List of elements that shouldn't be a wrapper for an element
       notAllowed: [
         'Paragraph',
@@ -72,6 +84,17 @@ export default {
         .catch((error) => {
           webflow.notify({ type: 'Error', message: error })
         });
+    },
+    displayDetails(el) {
+      this.displayDetailsEl = el;
+      this.showDetails = true;
+    },
+    insertFromDetails(el) {
+      this.insertEl(el);
+      this.showDetails = false;
+      setTimeout(() => {
+        this.displayDetailsEl = null;
+      }, 500);
     }
   }
 }

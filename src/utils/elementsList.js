@@ -21,6 +21,7 @@ export default [
   },
   {
     id: 'button',
+    html: '<button>',
     title: 'Button',
     label: 'A native html button element.',
     description: "The <button> HTML element is an interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it then performs an action, such as submitting a form or opening a dialog.",
@@ -39,6 +40,7 @@ export default [
   },
   {
     id: 'code',
+    html: '<code>',
     title: 'Code',
     label: 'Highlight code strings.',
     description: "The <code> HTML element displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the user agent's default monospace font.",
@@ -50,6 +52,7 @@ export default [
   },
   {
     id: 'span',
+    html: '<span>',
     title: 'Span',
     label: 'The most flexible html element.',
     description: "The <span> HTML element is a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the class or id attributes), or because they share attribute values, such as lang. It should be used only when no other semantic element is appropriate. <span> is very much like a <div> element, but <div> is a block-level element whereas a <span> is an inline-level element.",
@@ -61,6 +64,7 @@ export default [
   },
   {
     id: 'audio',
+    html: '<audio>',
     title: 'Audio',
     label: 'A native audio player on your website.',
     description: "The <audio> HTML element is used to embed sound content in documents. It may contain one or more audio sources, represented using the src attribute or the <source> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a MediaStream.",
@@ -81,6 +85,7 @@ export default [
   },
   {
     id: 'hr',
+    html: '<hr />',
     title: 'Hr',
     label: 'An horizontal divider.',
     description: "The <hr> HTML element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.",
@@ -91,6 +96,7 @@ export default [
   },
   {
     id: 'blockquote',
+    html: '<blockquote>',
     title: 'Blockquote',
     label: 'For quotes, testimonials, etc.',
     description: "The <blockquote> HTML element indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see Notes for how to change it). A URL for the source of the quotation may be given using the cite attribute, while a text representation of the source can be given using the <cite> element.",
@@ -115,6 +121,7 @@ export default [
   },
   {
     id: 'datalist',
+    html: '<datalist>',
     title: 'Datalist',
     label: 'A special input type with search and a dropdown of options.',
     description: "The <datalist> HTML element contains a set of <option> elements that represent the permissible or recommended options available to choose from within other controls.",
@@ -188,6 +195,7 @@ export default [
   },
   {
     id: 'details',
+    html: '<details>',
     title: 'Details + Summary',
     label: 'A native disclosure widget that can be toggled.',
     description: "The <details> HTML element creates a disclosure widget in which information is visible only when the widget is toggled into an \"open\" state. A summary or label must be provided using the <summary> element.",
@@ -218,6 +226,7 @@ export default [
   },
   {
     id: 'dl',
+    html: '<dl><dt><dd>',
     title: 'Description List',
     label: 'Special list type to describe terms.',
     description: "The <dl> HTML element represents a description list. The element encloses a list of groups of terms (specified using the <dt> element) and descriptions (provided by <dd> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).",
@@ -266,6 +275,7 @@ export default [
   },
   {
     id: 'hgroup',
+    html: '<hgroup>',
     title: 'HGroup',
     label: 'An element to block headlines with extra context.',
     description: "The <hgroup> HTML element represents a heading and related content. It groups a single <h1>–<h6> element with one or more <p>.",
@@ -290,6 +300,7 @@ export default [
   },
   {
     id: 'progress',
+    html: '<progress>',
     title: 'Progress',
     label: 'A native html progress bar.',
     description: "The <progress> HTML element displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
@@ -311,6 +322,7 @@ export default [
   },
   {
     id: 'meter',
+    html: '<meter>',
     title: 'Meter',
     label: 'Similar to a progress bar, but with support for min and max values.',
     description: "The <meter> HTML element represents either a scalar value within a known range or a fractional value.",
@@ -348,6 +360,7 @@ export default [
   },
   {
     id: 'video',
+    html: '<video>',    
     title: 'Video',
     label: 'A native html video element.',
     description: "The <video> HTML element embeds a media player which supports video playback into the document. You can use <video> for audio content as well, but the <audio> element may provide a more appropriate user experience.",
@@ -372,6 +385,7 @@ export default [
   },
   {
     id: 'iframe',
+    html: '<iframe>',
     title: 'Iframe',
     label: 'Embed any other url inside your page.',
     description: "The <iframe> HTML element represents a nested browsing context, embedding another HTML page into the current one.",
@@ -396,6 +410,7 @@ export default [
   },
   {
     id: 'canvas',
+    html: '<canvas>',
     title: 'Canvas',
     label: 'An element to render 2D or 3D graphics (using JavaScript).',
     description: "Use the HTML <canvas> element with either the canvas scripting API or the WebGL API to draw graphics and animations.",

@@ -11,7 +11,10 @@
         <h3 class="title">{{ el.title }}</h3>
         <p class="description">{{ el.label }}</p>
       </div>
-      <div class="info">
+      <div 
+        class="info"
+        @click.stop="$emit('details')"
+      >
         <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
           <circle opacity=".4" cx="17" cy="15" r="12" stroke="currentColor" stroke-width="2"/>
           <path d="M15 8a3 3 0 0 0-3 3v1h2v-1a1 1 0 0 1 1-1h3.652a1 1 0 0 1 .759 1.65l-2.689 3.137A3 3 0 0 0 16 16.74V18h2v-1.26a1 1 0 0 1 .24-.65l2.69-3.138C22.596 11.006 21.214 8 18.651 8H15Zm2 14.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" fill="currentColor"/>
