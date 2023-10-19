@@ -24,7 +24,14 @@ export default [
     mdn: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button',
     structure: {
       tag: 'button',
-      text: 'Button'
+      children: [
+        {
+          structure: {
+            tag: 'span',
+            text: 'Button'
+          }
+        }
+      ]
     }
   },
   {

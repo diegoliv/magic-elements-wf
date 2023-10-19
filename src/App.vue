@@ -3,7 +3,8 @@
     <div class="app-ui" v-if="isElSelected">
       <Search v-model="searchInput" />
       <ElementsList 
-        :search="searchInput"          
+        :search="searchInput"
+        @insert="insertEl"       
       />
     </div>
     <NotSelected v-if="!isElSelected" />
@@ -14,6 +15,8 @@
 import Search from "./Components/Search.vue";
 import ElementsList from "./Components/ElementsList.vue";
 import NotSelected from "./Components/NotSelected.vue";
+
+import { createElement } from "./utils/utils";
 
 export default {
   components: {
@@ -60,6 +63,15 @@ export default {
         this.isElSelected = false;
         this.selectedEl = null;
       }
+    },
+    insertEl(el) {
+      createElement(el, this.selectedEl)
+        .then(() => {
+          webflow.notify({ type: 'Success', message: `Added ${el.title} to the canvas.` })
+        })
+        .catch((error) => {
+          webflow.notify({ type: 'Error', message: error })
+        });
     }
   }
 }

@@ -2,6 +2,7 @@
   <li>
     <button 
       class="element-selector"
+      @click="$emit('insert')"
     >
       <div class="icon">
         <img :src="getImageUrl(el.id)" />    
@@ -27,9 +28,6 @@
     methods: {
       showDescription() {
         this.$emit('showdescription', el);
-      },
-      insertElement() {
-        this.$emit('insert', el);
       },
       getImageUrl(id) {
         const imageUrl = new URL(`../Icons/${id}.svg`, import.meta.url).href  

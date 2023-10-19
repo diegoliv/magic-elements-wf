@@ -5,6 +5,7 @@
         v-for="(el,key) in filteredList" 
         :key="key"
         :el="el"
+        @insert="$emit('insert', el)"
       />
     </ul>
     <NotFound v-if="filteredList.length <= 0" />
