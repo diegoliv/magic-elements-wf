@@ -67,7 +67,7 @@ export default [
       props: [
         {
           name: 'controls',
-          value: ''
+          value: 'true'
         },
         {
           name: 'src',

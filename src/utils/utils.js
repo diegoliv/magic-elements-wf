@@ -3,10 +3,10 @@ const createElement = async (el, parent) => {
     throw new Error('Element missing structure information.');
   }
 
-  const element = webflow.createDOM(el.structure.tag)
+  const element = webflow.createDOM(el.structure.tag);
 
   if (el.structure.props) {
-    props.forEach((prop) => {
+    el.structure.props.forEach((prop) => {
       element.setAttribute(prop.name, prop.value);
     })
   }
