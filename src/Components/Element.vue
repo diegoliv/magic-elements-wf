@@ -22,6 +22,8 @@
 </template>
 
 <script>
+  const getImg = (id) => new URL(`../Icons/${id}.svg`, import.meta.url).href 
+  
   export default {
     name: "Element",
     props: ['el'],
@@ -30,8 +32,7 @@
         this.$emit('showdescription', el);
       },
       getImageUrl(id) {
-        const imageUrl = new URL(`../Icons/${id}.svg`, import.meta.url).href  
-        return imageUrl
+        return getImg(id)
       },      
     }  
   }
@@ -54,7 +55,8 @@
   cursor: pointer;
   
   &:hover {
-    border-color: var(--blueBorder);
+    background-color: var(--background3);
+    // border-color: var(--blueBorder);
   }
 
   .description {

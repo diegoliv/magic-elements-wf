@@ -1,7 +1,7 @@
 <template>
   <div class="elements-list">
     <ul v-if="filteredList.length > 0">      
-      <Element 
+      <Element
         v-for="(el,key) in filteredList" 
         :key="key"
         :el="el"

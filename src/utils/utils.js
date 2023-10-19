@@ -1,9 +1,16 @@
-const createElement = async (el, parent) => {
+const createElement = async (el, parent, save) => {
+  const shouldSave = save || true; 
   if (!el.structure || !el.structure.tag) {
     throw new Error('Element missing structure information.');
   }
 
   const element = webflow.createDOM(el.structure.tag);
+
+  if (parent.children && parent.configurable) {
+    // get all existing children to avoid erasing content
+    const children = parent.getChildren();
+    parent.setChildren([...children, element]);    
+  }
 
   if (el.structure.props) {
     el.structure.props.forEach((prop) => {
@@ -18,15 +25,11 @@ const createElement = async (el, parent) => {
 
   if (el.structure.children) {
     el.structure.children.forEach(child => {
-      createElement(child, element);
+      createElement(child, element, false);
     })
   }
 
-  if (parent.children && parent.configurable) {
-    parent.setChildren([element]);
-    
-    await parent.save();
-  }
+  await parent.save();
 }
 
 export { createElement }

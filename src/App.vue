@@ -29,21 +29,21 @@ export default {
       searchInput: "",
       isElSelected: false,
       selectedEl: null,
-      // // List of elements that shouldn't be a wrapper for an SVG icon
-      // notAllowed: [
-      //   'Paragraph',
-      //   'List',
-      //   'Heading',
-      //   'Blockquote',
-      //   'RichText',
-      //   'DynamoWrapper',
-      //   'DynamoList',
-      //   'FormWrapper',
-      //   'FormBlockLabel',
-      //   'TabsWrapper',
-      //   'TabsMenu',
-      //   'TabsContent',
-      // ]   
+      // List of elements that shouldn't be a wrapper for an element
+      notAllowed: [
+        'Paragraph',
+        // 'List',
+        'Heading',
+        // 'Blockquote',
+        // 'RichText',
+        // 'DynamoWrapper',
+        // 'DynamoList',
+        // 'FormWrapper',
+        // 'FormBlockLabel',
+        // 'TabsWrapper',
+        // 'TabsMenu',
+        // 'TabsContent',
+      ]   
     }
   },
   mounted() {
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     selectedElementCallback(element) {
-      if (element && element.children) {
+      if (element && element.children && element.configurable && this.notAllowed.indexOf(element.type) === -1) {
         this.isElSelected = true;
         this.selectedEl = element;
       } else {
