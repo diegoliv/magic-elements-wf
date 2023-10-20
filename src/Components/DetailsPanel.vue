@@ -1,7 +1,8 @@
 <template>
-  <div class="details-panel">
+  <Transition>
+  <div class="details-panel" v-show="active">
     <div class="details-panel-backdrop"></div>
-    <div class="details-panel-body">
+    <div class="details-panel-body" v-if="el">
       <header>
         <span>{{ el.title }} Details</span>
         <button 
@@ -14,7 +15,9 @@
         </button>
       </header>
       <div class="panel-body">
-        <div class="panel-preview"></div>
+        <div class="panel-preview">
+          <img :src="getImageUrl(el.id)" />
+        </div>
         <div class="panel-description">
           <header>
             <span>{{ el.title }}</span>
@@ -22,7 +25,7 @@
           </header>
           <p>{{ el.description }}</p>
           <a :href="el.mdn" class="mdn-docs" target="_blank">
-            <span>MDN Web Docs</span>
+            <span>{{ el.id === 'dom' ? 'More info' : 'MDN Web Docs' }}</span>
             <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
               <path d="M8.146 4.147a2.621 2.621 0 1 1 3.707 3.707l-1 1-.707-.707 1-1a1.621 1.621 0 1 0-2.292-2.293l-1 1-.708-.707 1-1ZM5.854 7.854l-1 1a1.621 1.621 0 0 0 2.292 2.293l1-1 .708.707-1 1a2.621 2.621 0 1 1-3.708-3.707l1-1 .708.707Z" fill="currentColor"/>
               <path d="m6.854 9.854 3-3-.708-.707-3 3 .708.707Z" fill="currentColor"/>
@@ -35,12 +38,21 @@
       </div>
     </div>
   </div>
+  </Transition>
 </template>
 
 <script>
+  const getImg = (id) => new URL(`../Thumbs/${id}.svg`, import.meta.url).href 
+
   export default {
     name: 'DetailsPanel',
-    props: ['el', 'active']
+    props: ['el', 'active'],
+    methods: {
+      getImageUrl(id) {
+        return getImg(id)
+      },      
+      
+    }
   }
 </script>
 
@@ -57,8 +69,6 @@
   align-items: center;
   justify-content: flex-end;
   padding: 16px;
-  backdrop-filter: blur(5px);
-  transform: all .5s;
 
   .details-panel-backdrop {
     position: absolute;
@@ -67,8 +77,8 @@
     right: 0;
     bottom: 0;
     z-index: 0;
-    opacity: .7;
-    transition: all .5s;
+    opacity: 0.7;
+    transition: all .3s;
     background-color: #000;
   }
 
@@ -82,7 +92,8 @@
     overflow: hidden;
     opacity: 1;
     border-radius: var(--border-radius);
-    transform: all .5s;
+    transition: all .3s;
+    transform: none;
     background-color: var(--background2);
     box-shadow: 0px 40px 80px -40px #000, 
                 0px 24px 40px -24px rgba(0, 0, 0, 0.25), 
@@ -126,6 +137,12 @@
       height: 120px;
       background-color: var(--blueText);
       margin-bottom: 8px;
+
+      img {
+        width: 100%;
+        height: 120px;
+        display: block;
+      }
     }
 
     .panel-body {
@@ -190,28 +207,28 @@
       }
     }
   }
-  // &.v-enter-active,
-  // &.v-leave-active {
-  //   backdrop-filter: blur(8px);
-  //   .details-panel-backdrop {
-  //     opacity: .7;
-  //   }
-  //   .details-panel-body {
-  //     transform: translate3d(0, 0%,0) scale(1);
-  //     opacity: 1;
-  //   }
-  // }
 
-  // &.v-enter-from,
-  // &.v-leave-to {
-  //   backdrop-filter: blur(0);
-  //   .details-panel-backdrop {
-  //     opacity: 0;
-  //   }
-  //   .details-panel-body {
-  //     transform: translate3d(0, 100%,0) scale(0.9);
-  //     opacity: 0;
-  //   }
-  // }
+  &.v-enter-active,
+  &.v-leave-active {
+    transition: all .5s;
+
+    .details-panel-backdrop {
+      opacity: .7;
+    }
+    .details-panel-body {
+      transform: none;
+    }
+  }
+
+  &.v-enter-from,
+  &.v-leave-to {
+
+    .details-panel-backdrop {
+      opacity: 0;
+    }
+    .details-panel-body {
+      transform: translate3d(0, 120%,0);
+    }
+  }  
 }
 </style>

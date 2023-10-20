@@ -9,7 +9,6 @@
       />
     </div>
     <DetailsPanel
-      v-if="displayDetailsEl && showDetails"
       :el="displayDetailsEl"
       :active="showDetails"
       @close="showDetails = false"

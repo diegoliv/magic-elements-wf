@@ -4,7 +4,7 @@
       <input
         class="search-input"
         :value="modelValue"
-        placeholder="Eg. Webflow"
+        placeholder="Search elements"
         @input="$emit('update:modelValue', $event.target.value)"
       />
       <svg

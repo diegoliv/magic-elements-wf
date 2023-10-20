@@ -13,8 +13,8 @@ export default [
     id: 'dom',
     title: 'The DOM Element',
     label: 'It can be anything you want.',
-    description: "",
-    mdn: '',
+    description: "The DOM Element is a new element introduced in Webflow, originally thinking about Designer Extensions. But you can use this element to create any html tag you want, even outside Webflow Apps.",
+    mdn: 'https://www.youtube.com/watch?v=qULN82RqAHw',
     structure: {
       tag: 'div',
     }
